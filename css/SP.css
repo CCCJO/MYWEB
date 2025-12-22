@@ -1,0 +1,39 @@
+/* 最新作品区块 */
+.latest-work-section {
+  background-color: #000;
+  padding: 0;
+  position: relative;
+  margin-bottom: 100px; /* 下方自然留白，和下面内容拉开距离 */
+}
+
+.latest-work-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;
+  z-index: 10;
+}
+
+/* ✅ 不再叫 .image-container，避免和轮播冲突 */
+.latest-image-wrapper {
+  padding: 30px;          /* 图片与黑色边框的距离 */
+  display: flex;
+  align-items: center;   /* 图片垂直居中 */
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;          /* 高度由图片决定 */
+  object-fit: contain;   /* 保持比例、完整显示 */
+  display: block;
+}

@@ -1,0 +1,136 @@
+/* 分隔条带（80px 深蓝色） */
+.section-divider {
+    width: 100%;
+    height: 20px;
+    background-color: #FFFFFF;
+}
+
+/* 第二部分：个人简介区域
+   宽度铺满，高度由背景图比例决定 */
+.profile-section {
+    width: 100%;
+	background: url('')center top no-repeat;
+    background-size: 100% auto;
+    position: relative;
+}
+
+/* 用伪元素控制整体高度 = 图片比例 */
+/* 假设背景图比例是 10:7 → padding-top = 70%
+   如果换图，只改下面这一个数字即可 */
+.profile-section::before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 58%; /* 高度 = 宽度 × 70% */
+}
+
+/* 内容容器：在背景图上方，整体居中 */
+.profile-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+/* 内部宽度控制（和第一部分对齐） */
+.profile-inner {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;      /* 左右两块整体垂直居中 */
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* 左侧：人物图片 */
+.profile-image {
+    width: 56%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* 右侧：黑色文字盒子 */
+.profile-content {
+    background-color: #452763;
+    color: #fff;
+    padding: 60px;           /* 内边距加大 → 盒子更高更宽 */
+    width: 80%;              /* 稍微加宽一点，从 60% → 65% */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;               /* 内部间距也稍微大一点 */
+    box-sizing: border-box;
+    max-height: 90%;         /* 最大高度略小于容器，留点边 */
+    overflow: hidden;
+
+    /* 往上调：整体在竖直方向往上移动 */
+    transform: translateY(0px);  /* 负数 = 往上，正数 = 往下 */
+}
+
+/* 标题部分 */
+.profile-title {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.profile-name {
+    font-size: 2.8rem;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.profile-blank-line {
+    height: 20px;
+}
+
+
+.profile-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    margin: 15px 0;
+}
+
+/* 两个文字段 */
+.profile-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-paragraph {
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.1rem;       
+}
+
+/* 四个图标位置 */
+.profile-icons {
+    display: flex;
+    gap: 40px;
+    margin-top: auto; /* 把图标推到黑色盒子底部 */
+}
+
+.icon-item {
+    width: 100px;
+    height: 100px;
+}
+
+.icon-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

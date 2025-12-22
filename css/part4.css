@@ -1,0 +1,140 @@
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+    font-size: 16px;
+}
+/* 全局背景容器：完全适配图片 */
+.experience-section {
+    width: 100%;
+    /* 核心：让容器高度由背景图决定 */
+    height: auto;
+    min-height: unset; /* 清除之前的保底高度 */
+    padding: 0;
+    position: relative;
+    overflow: visible; /* 禁止隐藏溢出内容 */
+}
+
+/* 单独的背景图层（避免内容挤压） */
+.experience-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* 高度完全跟随图片 */
+    height: auto;
+    /* 背景图完整显示 */
+    background-image: url('images/背景4.jpg');
+    background-size: 100% 100%; /* 仅当容器与图片尺寸完全一致时用，否则换为 contain */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* 让背景图高度等于自身图片高度 */
+    aspect-ratio: 10000/5000; /* 替换为你的图片实际宽高比（如 1200/800） */
+    z-index: 0;
+}
+
+/* 内容容器：悬浮在背景图上方 */
+.experience-container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 50px 20px;
+    /* 确保内容不超出背景图范围 */
+    height: 100%;
+}
+
+/* 工作经验区域：高度跟随背景图 */
+
+/* 标题样式 */
+.experience-title {
+    font-size: 2rem;
+    color: #fff; /* 文字颜色适配背景 */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.experience-divider {
+    width: 80px;
+    height: 3px;
+    background-color: #1a8fff;
+    margin: 0 auto 30px;
+}
+
+/* 介绍文字 */
+.experience-intro {
+    color: #f5f5f5;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* 盒子容器：自适应布局 */
+.experience-boxes {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 单个盒子：解决模糊核心样式 */
+.experience-box {
+    width: 450px; /* 固定盒子宽度（匹配图片比例） */
+    height: 350px; /* 固定盒子高度（匹配图片比例） */
+    padding: 30px;
+    position: relative;
+    /* 盒子背景图：关键是尺寸匹配 */
+    background-image: var(--box-bg);
+    background-size: 100% 100%; /* 只有盒子尺寸和图片尺寸一致时，才用这个（不模糊） */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* 可选：盒子加轻微阴影增强层次 */
+.experience-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.1); /* 轻微遮罩，不影响清晰度 */
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* 盒子内文字层 */
+.box-header, .box-texts {
+    position: relative;
+    z-index: 2;
+}
+
+.box-main-title {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.box-sub-title {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+}
+
+.box-divider {
+    width: 50px;
+    height: 2px;
+    background-color: #1a8fff;
+    margin-bottom: 20px;
+}
+
+.box-paragraph {
+    color: #f5f5f5;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}

@@ -1,0 +1,232 @@
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+    background-color: #000 ;
+    color: #fff;
+}
+
+/* 第五部分：作品展示区域（缩小边框，增大内容占比） */
+.works-section {
+    width: 90%; /* 网站主体宽度从1000px改为90%，占满屏幕 */
+    max-width: 1400px; /* 限制最大宽度，避免太宽 */
+    margin: 300px auto; /* 减少上下留白，让内容更紧凑 */
+}
+
+/* 作品展示标题（居中显示） */
+.works-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px; /* 标题与下方内容的间距 */
+    color: #fff;
+}
+
+/* 上方动画栏（增大面积） */
+.works-carousel-wrap {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.carousel {
+    width: 100%;
+    height: 500px; /* 动画栏高度从400px增至500px */
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.carousel-item {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-item img,
+.carousel-item video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* 动画栏按钮 */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-prev { left: 15px; }
+.carousel-next { right: 15px; }
+.carousel-btn:hover {
+    background-color: rgba(26,143,255,0.9);
+}
+
+/* 下方4个图片栏（增大面积） */
+.works-grid {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.works-item {
+    flex: 1;
+    height: 200px; /* 图片栏高度从150px增至200px */
+    background-color: #000;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+.works-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.works-item:hover img {
+    transform: scale(1.05);
+}
+.works-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* 放大查看遮罩层：Windows 照片查看器效果 */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;      /* 周围背景色，你可以改成别的 */
+  z-index: 9999;
+  display: none;
+  justify-content: center;     /* 水平居中 */
+  align-items: center;
+	overflow: hidden;/* 垂直居中 */
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+/* 内容容器：只做“最大尺寸”限制，不强行宽高 */
+.lightbox-content {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  padding: 20px;               /* 四周留点边，不要贴太死 */
+  box-sizing: border-box;
+}
+
+/* 图片本身：按比例缩放，完整显示 */
+.lightbox-content img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;         /* 不拉伸、不裁切，只缩放 */
+}
+
+/* 关闭按钮 */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  color: #1a8fff;
+}
+
+/* 放大查看遮罩层：Windows 照片查看器效果 */
+/* 放大查看遮罩层：中间一个较小的窗口显示图片 */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 9999;
+  display: none;
+  justify-content: center;   /* 让 .lightbox-content 居中 */
+  align-items: center;       /* 让 .lightbox-content 居中 */
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+/* 控制“图片窗口”大小 */
+.lightbox-content {
+  max-width: 60vw;   /* 窗口最大宽度 = 视口 80% */
+  max-height: 60vh;  /* 窗口最大高度 = 视口 80% */
+  width: auto;
+  height: auto;
+  background: #111;  /* 窗口背景，可选 */
+  padding: 20px;     /* 窗口内边距，可选 */
+  border-radius: 8px;/* 可选圆角 */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 图片在窗口内等比例缩放 */
+.lightbox-content img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,84 @@
+/* 第三部分：技能掌握区域（兼容不同尺寸图标） */
+.skills-section {
+    width: 100%;
+    padding: 30px 0;
+    background-color: #fff;
+}
+
+.skills-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* 技能标题 */
+.skills-title {
+    font-size: 1.5rem;
+    margin: 0 0 25px 0;
+    color: #000;
+}
+
+/* 图标容器整体排列 */
+.skills-icons-wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* 单个技能项（图标+注释） */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 20%;
+}
+
+/* 图标占位容器（固定尺寸） */
+.skill-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    /* 让图标容器成为块级，方便图标居中 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 占位背景，替换图标后可删除 */
+    background-color: #f5f5f5;
+}
+
+/* 兼容不同尺寸的图标样式 */
+.skill-icon img {
+    /* 图标等比例缩放，不超出容器 */
+    max-width: 100%;
+    max-height: 100%;
+    /* 保持图标比例，不拉伸变形 */
+    object-fit: contain;
+}
+
+/* 图标下方注释文字 */
+.skill-label {
+    font-size: 0.8rem;
+    color: #000;
+    margin: 0;
+}
+
+/* 中间分隔细线 */
+.skills-divider {
+    width: 70%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 15px auto 20px;
+}
+
+/* 下方文字段 */
+.skills-text {
+    line-height: 1.5;
+    color: #333;
+    padding: 0 50px;
+    text-align: left;
+}
